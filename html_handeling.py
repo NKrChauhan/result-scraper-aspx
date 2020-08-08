@@ -29,8 +29,12 @@ def append_row(filename, dict_of_elem):
 
 def save_file(filename,dictionary):
     file_path = os.path.join(BASE_DIR,filename)
-    df = pd.DataFrame(dictionary,index=[0])
-    if not os.path.exists(file_path):
-        df.to_csv(file_path,index=False)
+    if dictionary["roll_no"]=="":
+        return False
     else:
-        df.to_csv(filename, mode='a', header=False,index=False)
+        df = pd.DataFrame(dictionary,index=[0])
+        if not os.path.exists(file_path):
+            df.to_csv(filename,index=False,header=True)
+        else:
+            df.to_csv(filename, mode='a', header=False,index=False)
+        return True
