@@ -23,8 +23,17 @@ def data_gen(min,max):
 
 def run(filename):
     academic_year,sem,res_cat,rollno_min,rollno_max=data_gen(int(sys.argv[1]),int(sys.argv[2]))
-    bases = [160431300,] #codes for all branches if needed to loop through
-    base=1604313000
+    #this is for 2016-2020(corona kaal) batch 
+    bases = {
+        "it":1604313000,
+        "me":1604340000,
+        "ee":1604320000,
+        "cs":1604310000,
+        "ec":1604331000,
+        "ch":1604351000,
+        "ce":1604300000,
+        } #codes for all branches if needed to loop through
+    base=bases[sys.argv[3]]
     # rollno_min+=base
     # rollno_max+=base
     for roll_no in range(rollno_min,rollno_max+1):
@@ -39,11 +48,14 @@ def run(filename):
         response = br.submit()
         
         data = data_getter(response.read(),roll_no)
-        print(f"done:{base+roll_no}")
-        save_file(filename,data)
+        s = save_file(filename,data)
+        if s:
+            print(f"done:{base+roll_no}")
+        else:
+            print(f"skipped{base+roll_no}")
         br.close()
 
 
 if __name__ == "__main__":
     date    =   datetime.datetime.now()
-    run(f"{date}.csv")
+    run(f"{date.year}{date.month}{date.day}{date.hour}{date.minute}{date.second}.csv")
