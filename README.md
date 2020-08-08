@@ -10,11 +10,11 @@ it scrapes the result saving the necessary details in csv file.
   
   ##### parameter 1: start of roll number
   ##### parameter 2: end of roll number
-  ##### parameter 3: branch {it/me/ec/ee/ch/ce}
+  ##### parameter 3: branch {it/me/ec/ee/ch/ce/all}
    
-parameters can be tuned for scraping all sorts of data from the form below 
+parameters can be tuned at one plece in ![this](parameters.py) file for scraping all sorts of data from the form below: 
 
 ##### [form](http://www.bietjhs.ac.in/studentresultdisplay/frmprintreport.aspx)
 
 thanks,
-bye! bye!
+###### May the code be with you
