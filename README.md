@@ -4,12 +4,13 @@ it scrapes the result saving the necessary details in csv file.
 ### install the necessary requirements and run the python script by :
   
   ``` 
-  python3 spider.py 1 40 
+  python3 spider.py 1 40 me
   
   ```
   
   ##### parameter 1: start of roll number
   ##### parameter 2: end of roll number
+  ##### parameter 3: branch {it/me/ec/ee/ch/ce}
    
 parameters can be tuned for scraping all sorts of data from the form below 
 
