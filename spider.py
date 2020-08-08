@@ -33,7 +33,7 @@ def run(filename):
             #redirecting to resulting site which we want to scrape so then we will scrape the data and save in csv
             response = br.submit()
             
-            data = data_getter(response.read(),sr_no)
+            data = data_getter(response.read(),sr_no,sem)
             s = save_file(filename,data)
             if s:
                 print(f"Done:{code+roll_no}")
